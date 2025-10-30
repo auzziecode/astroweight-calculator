@@ -4,12 +4,36 @@
 <head>
   <meta charset="utf-8">
   <title>Astro Weight Calculator</title>
+  <link href="styles.css" rel="stylesheet"/>
 </head>
 
 <body>
-  <!-- Write your markup here  -->
-
-  <script src="main.js" charset="utf-8"></script>
+  <script src="main.js" charset="utf-8" defer></script>
+  <div class="window">
+    <h1>Astro Weight Calculator</h1>
+    <div>
+      <p class="columns">Enter your Weight:</p>
+      <p class="columns">Select a Planet:</p>
+      <form id="main-input">
+        <input id="user-weight" type="text" inputmode="numeric" title="Numbers & Decimals Only" maxlength="12" placeholder="Weight (lbs)" required/>
+        <select id="planets">
+        </select>
+        <p><input id="remove-pluto" type="checkbox" onclick=populateDropdown()><label for="remove-pluto">Remove Pluto?</label></p>
+      </form>
+    </div>
+    <div class="centre">
+      <p id="output"></p>
+      <button id="calculate-button" type="button" form="main-input" onclick=handleClickEvent()>Calculate</button>
+    </div>
+    <div>
+      <form id="custom-planet">
+        <input id="reveal-form" type="checkbox"><label for="reveal-form">Add Custom Planet?</label>
+        <input id="new-planet-name" class="hide" type="text" maxlength="16" placeholder="Planet Name" required>
+        <input id="new-planet-multiplier" class="hide" type="text" inputmode="numeric" title="Numbers & Decimals Only" maxlength="10" placeholder="Weight Multiplier" required>
+        <button id="add-button" class="hide" type="button" onclick=addCustom()>Add</button>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>
